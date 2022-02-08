@@ -91,7 +91,7 @@ def main():
         # --------------------------------
         img_E = util.tensor2uint(img_E)
 
-        # util.imsave(img_E, os.path.join(E_folder, img_name+ext))
+        util.imsave(img_E, os.path.join(E_folder, img_name+ext))
     ave_runtime = sum(test_results['runtime']) / len(test_results['runtime']) / 1000.0
     logger.info('------> Average runtime of ({}) is : {:.6f} seconds'.format(L_folder, ave_runtime))
 
