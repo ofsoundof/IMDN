@@ -22,7 +22,7 @@ def main():
 
     torch.cuda.current_device()
     torch.cuda.empty_cache()
-    torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.benchmark = False
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # --------------------------------
