@@ -17,8 +17,8 @@ def main():
     # basic settings
     # --------------------------------
     # testsets = 'DIV2K'
-    testsets = os.path.join(os.getcwd(), 'data')
-    testset_L = 'DIV2K_test_LR'
+    testsets = '/home/thor/projects/data/super_resolution/DIV2K'
+    testset_L = 'DIV2K_valid_LR_bicubic'
 
     torch.cuda.current_device()
     torch.cuda.empty_cache()
@@ -43,7 +43,7 @@ def main():
     # --------------------------------
     # read image
     # --------------------------------
-    L_folder = os.path.join(testsets, testset_L)
+    L_folder = os.path.join(testsets, testset_L, 'X4')
     E_folder = os.path.join(testsets, testset_L+'_results')
     util.mkdir(E_folder)
 

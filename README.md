@@ -25,3 +25,12 @@ Jointly with NTIRE workshop we have a challenge on Efficient Super-Resolution, t
     Note: The best average inference time among three trials is selected.
 
 Run [test_demo.py](test_demo.py) to test the model
+
+## How to use the code during test phase.
+
+1. `git clone https://github.com/ofsoundof/IMDN`
+2. Put your model script under the `models` folder.
+3. Put your pretrained model under the `model_zoo` folder.
+4. Modify `testsets`, `testset_L`, and `model_path` in `test_demo.py`. Modify
+the imported models.
+5. `python test_demo.py`
