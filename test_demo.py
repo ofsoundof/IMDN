@@ -30,6 +30,7 @@ def main():
     # --------------------------------
     model_path = os.path.join('model_zoo', 'imdn_x4.pth')
     model = IMDN(in_nc=3, out_nc=3, nc=64, nb=8, upscale=4)
+    print(model)
     model.load_state_dict(torch.load(model_path), strict=True)
     model.eval()
     for k, v in model.named_parameters():
