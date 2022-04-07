@@ -36,7 +36,7 @@ the imported models.
 
 ## How to calculate the number of parameters, FLOPs, and activations
 
-```
+```python
     from utils.model_summary import get_model_flops, get_model_activation
 
     input_dim = (3, 256, 256)  # set the input dimension
