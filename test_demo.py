@@ -6,6 +6,7 @@ import torch
 from utils import utils_logger
 from utils import utils_image as util
 from models.IMDN import IMDN
+from utils.model_summary import get_model_flops, get_model_activation
 
 
 def main():
@@ -59,7 +60,7 @@ def main():
     start = torch.cuda.Event(enable_timing=True)
     end = torch.cuda.Event(enable_timing=True)
 
-    for img in util.get_image_paths(L_folder):
+    for img in util.get_image_paths(L_folder)[0]:
 
         # --------------------------------
         # (1) img_L
@@ -92,6 +93,21 @@ def main():
         img_E = util.tensor2uint(img_E)
 
         util.imsave(img_E, os.path.join(E_folder, img_name[:4]+ext))
+
+    input_dim = (3, 256, 256)  # set the input dimension
+    activations, num_conv = get_model_activation(model, input_dim)
+    activations = activations / 10 ** 6
+    logger.info("{:>16s} : {:<.4f} [M]".format("#Activations", activations))
+    logger.info("{:>16s} : {:<d}".format("#Conv2d", num_conv))
+
+    flops = get_model_flops(model, input_dim, False)
+    flops = flops / 10 ** 9
+    logger.info("{:>16s} : {:<.4f} [G]".format("FLOPs", flops))
+
+    num_parameters = sum(map(lambda x: x.numel(), model.parameters()))
+    num_parameters = num_parameters / 10 ** 6
+    logger.info("{:>16s} : {:<.4f} [M]".format("#Params", num_parameters))
+
     ave_runtime = sum(test_results['runtime']) / len(test_results['runtime']) / 1000.0
     logger.info('------> Average runtime of ({}) is : {:.6f} seconds'.format(L_folder, ave_runtime))
 
