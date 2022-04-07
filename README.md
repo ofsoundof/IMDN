@@ -4,9 +4,9 @@
 
 Jointly with NTIRE workshop we have a challenge on Efficient Super-Resolution, that is, the task of super-resolving (increasing the resolution) an input image with a magnification factor x4 based on a set of prior examples of low and corresponding high resolution images. The challenge has three tracks.
 
-**Track 1: Inference Runtime**, the aim is to obtain a network design / solution with the lowest inference time (runtime) on a common GPU (ie. Titan Xp) while being constrained to maintain or improve over IMDN ([Hui et al, 2017](https://arxiv.org/abs/1909.11856)) in terms of number of parameters and the PSNR result.
+**Track 1: Inference Runtime**, the aim is to obtain a network design / solution with the lowest inference time (runtime) on a common GPU (ie. Titan Xp) while being constrained to maintain or improve over IMDN ([Hui et al, 2019](https://arxiv.org/abs/1909.11856)) in terms of number of parameters and the PSNR result.
 
-**Track 2: Model Complexity (Parameters and FLOPs)**, the aim is to obtain a network design / solution with the lowest amount of parameters and FLOPs while being constrained to maintain or improve the PSNR result and the inference time (runtime) of IMDN ([Hui et al, 2017](https://arxiv.org/abs/1909.11856)).
+**Track 2: Model Complexity (Parameters and FLOPs)**, the aim is to obtain a network design / solution with the lowest amount of parameters and FLOPs while being constrained to maintain or improve the PSNR result and the inference time (runtime) of IMDN ([Hui et al, 2019](https://arxiv.org/abs/1909.11856)).
 
 **Track 3: Overall Performance (Runtime, Parameters, FLOPs, Activation, Memory)**, the aim is to obtain a network design / solution with the best overall performance in terms of number of parameters, FLOPS, activations, and inference time and GPU memory on a common GPU (ie. Titan Xp).
 
